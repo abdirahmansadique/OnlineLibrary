@@ -10,7 +10,7 @@ interface Book {
 }
 
 function App() {
-  const { setItem, getItem, deleteItem } = UseLocalStorage("sadque");
+  const { setItem, getItem } = UseLocalStorage("sadque");
   const [list, setList] = useState<Book[]>([]);
   const [inputValue, setInput] = useState<Book>({ name: 'Akidatul_Tawhid', author: 'Alfauzan', year: '2000' });
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -37,11 +37,11 @@ function App() {
     setList(list.filter((_, i) => i !== index));
   };
 
-  const editItem = (index: number, newValue: Book) => {
-    const updatedList = [...list];
-    updatedList[index] = newValue;
-    setList(updatedList);
-  };
+  // const editItem = (index: number, newValue: Book) => {
+  //   const updatedList = [...list];
+  //   updatedList[index] = newValue;
+  //   setList(updatedList);
+  // };
 
   const filteredList = list.filter(item =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
